@@ -1,0 +1,9 @@
+li:hover{
+    opacity: 0.8;
+    transition: 0.25s;
+}
+#proje:hover{
+    scale: 1.2;
+    color: rgb(153, 153, 248);
+    transition: 0.2s;
+}

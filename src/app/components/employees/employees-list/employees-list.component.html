@@ -1,0 +1,59 @@
+<div class="container my-5">
+    <h1 class="mb-3">Employees</h1>
+    <table class="table" *ngIf="employees && employees.length > 0">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Salary</th>
+                <th>Department</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let employee of employees">
+                <td>{{employee.id }}</td>
+                <td>{{employee.name }}</td>
+                <td>{{employee.email }}</td>
+                <td>{{employee.phone }}</td>
+                <td>{{employee.salary }}</td>
+                <td>{{employee.department }}</td>
+                <button type="button" class="btn btn-primary m-1" [routerLink]="['/employees', 'edit', employee.id]"
+                    id="wiew">Wiew</button>
+                <!-- <td><a [routerLink]="['/employees', 'edit', employee.id]" style="text-decoration: none;">Wiew</a></td> -->
+            </tr>
+        </tbody>
+    </table>
+    <p *ngIf="!employees || employees.length <= 0"> Çalışan Bulunamadi.</p>
+    <!-- <div class="row pt-4" id="kutucuklar">
+        <div class="col-lg col-md-6 rounded-4 m-1" style="text-align: center;"><img src="https://vakifglobal.com//WebImages/Departments/f0ee13b3-40ea-4108-b800-2cfa372d0f1b.png" alt=""><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, ipsum. <br> <a href="">Daha Fazla Bilgi</a> </p></div>
+        <div class="col-lg col-md-6 rounded-4 m-1" style="text-align: center;"><img src="https://vakifglobal.com//WebImages/Departments/f0ee13b3-40ea-4108-b800-2cfa372d0f1b.png" alt=""><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, odit. <br> <a href="">Daha Fazla Bilgi</a></p></div>
+        <div class="col-lg col-md-6 rounded-4 m-1" style="text-align: center;"><img src="https://vakifglobal.com//WebImages/Departments/f0ee13b3-40ea-4108-b800-2cfa372d0f1b.png" alt=""><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, odit. <br><a href="">Daha Fazla Bilgi</a></p></div>
+        <div class="col-lg col-md-6 rounded-4 m-1" style="text-align: center;"><img src="https://vakifglobal.com//WebImages/Departments/f0ee13b3-40ea-4108-b800-2cfa372d0f1b.png" alt=""><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum, eius! <br><a href="">Daha Fazla Bilgi</a></p></div>
+    </div> -->
+</div>
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+<div class="container my-5">
+
+
+    <section class="hero-section">
+        <div class="card-grid">
+            <a class="card" [routerLink]="['/employees', 'edit', employee.id]"
+                *ngFor="let employee of employees.slice(-4).reverse()">
+                <div class="card__background"
+                    style="background-image: url(https://images.unsplash.com/photo-1557177324-56c542165309?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80);">
+                </div>
+                <div class="card__content">
+                    <p class="card__heading">{{employee.department }}</p>
+                    <p class="card__heading">{{employee.name }}</p>
+                    <p class="card__heading">{{employee.email }}</p>
+                    <p class="card__heading">{{employee.phone }}</p>
+                    <p class="card__heading">{{employee.salary }}</p>
+                </div>
+                <div id="detailClick"><p>Düzenlemek İçin Tıklayın</p></div>
+            </a>
+        </div>
+    </section>
+</div>

@@ -1,0 +1,46 @@
+<div class="container my-5">
+    <h2 class="mb-3">ADD NEW EMPLOYEE</h2>
+    <div class="row">
+        <div class="col" id="formDiv">
+            <form #form="ngForm" (ngSubmit)=" form.form.valid && openAlert()" (ngSubmit)=" ! form.form.valid && openError()">
+                <div class="form-group mb-3">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" #name="ngModel" name="name" [(ngModel)]="addEmployeeRequest.name" minlength="3" required
+                        placeholder="Enter Name">
+                    <p *ngIf="(email.touched || form.submitted) && name.errors?.required">Name Girilmeli!</p>
+                    <p *ngIf="(email.touched || form.submitted) && name.errors?.minlength">En Az 3 harf gerekli.</p>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="mail">E-Mail</label>
+                    <input type="email" class="form-control" name="email" #email="ngModel" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-z]{2,4}$" required
+                        [(ngModel)]="addEmployeeRequest.email" placeholder="Enter mail">
+                    <p *ngIf="(email.touched || form.submitted) && email.errors?.required">Email Girilmeli</p>
+                    <p *ngIf="(email.touched || form.submitted) && email.errors?.pattern">Email hatalı</p>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="phone">Phone Number</label>
+                    <input type="number" class="form-control" id="phone" name="phone"
+                        [(ngModel)]="addEmployeeRequest.phone" placeholder="Enter phone">
+                </div>
+                <div class="form-group mb-3">
+                    <label for="salary">Salary</label>
+                    <input type="number" class="form-control" id="salary" name="salary"
+                        [(ngModel)]="addEmployeeRequest.salary" placeholder="Enter salary">
+                </div>
+                <div class="form-group mb-3">
+                    <label for="department">Department</label>
+                    <input type="text" class="form-control" id="department" name="department"
+                        [(ngModel)]="addEmployeeRequest.department" placeholder="Enter department">
+                </div>
+                <div class="form-group mb-3">
+                    <label for="order">Order</label>
+                    <input type="number" class="form-control" id="order" name="order"
+                        [(ngModel)]="addEmployeeRequest.order" placeholder="Enter Order">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+        <div id="imgDiv" class="bg-secondary col rounded-3" style="
+        background-image: url('https://www.condley.cpa/wp-content/uploads/2015/10/159434207-resized.jpg'); background-size: cover;"></div>
+    </div>
+</div>

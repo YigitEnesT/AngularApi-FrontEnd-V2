@@ -1,0 +1,67 @@
+<div class="container my-5">
+    <h2 class="mb-3">EDIT EMPLOYEE</h2>
+    <div class="row">
+        <div class="col" id="formDiv">
+            <form #form="ngForm" (ngSubmit)=" form.form.valid && editEmployee()"
+                (ngSubmit)=" !form.form.valid && openError()">
+                <!-- <div class="form-group mb-3">
+                    <label for="id">Id</label>
+                    <input type="text" class="form-control" id="id" readonly name="id" #name="ngModel"
+                        [(ngModel)]="empDetail.id" placeholder="Enter Name">
+                </div> -->
+                <div class="form-group mb-3">
+                    <label for="order">Order</label>
+                    <input type="number" class="form-control" id="order" name="order" [(ngModel)]="empDetail.order"
+                        placeholder="Order">
+                </div>
+
+                <!-- Validler 
+                    name required
+                        pattern="[a-zA-Z]" minlength="3"
+
+                    
+
+                    email
+                    
+                    
+                -->
+                <div class="form-group mb-3">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" #name="ngModel" name="name" [(ngModel)]="empDetail.name"
+                        placeholder="Enter Name" pattern="[A-Za-z]{3,32}" minlength="3" required>
+                    <p *ngIf="(email.touched || form.submitted) && name.errors?.required">Name Girilmeli!</p>
+                    <p *ngIf="(email.touched || form.submitted) && name.errors?.minlength">En Az 3 harf gerekli.</p>
+                    <p *ngIf="(email.touched || form.submitted) && name.errors?.pattern">Geçersiz karakter kullanmayın.</p>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="mail">E-Mail</label>
+                    <input type="email" class="form-control" #email="ngModel" name="email" [(ngModel)]="empDetail.email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-z]{2,4}$" required
+                        placeholder="Enter mail">
+                    <p *ngIf="(email.touched || form.submitted) && email.errors?.required">Email Girilmeli</p>
+                    <p *ngIf="(email.touched || form.submitted) && email.errors?.pattern">Email hatalı</p>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="phone">Phone Number</label>
+                    <input type="number" class="form-control" id="phone" name="phone" [(ngModel)]="empDetail.phone"
+                        required placeholder="Enter phone">
+                </div>
+                <div class="form-group mb-3">
+                    <label for="salary">Salary</label>
+                    <input type="number" class="form-control" id="salary" name="salary" [(ngModel)]="empDetail.salary"
+                        required placeholder="Enter salary">
+                </div>
+                <div class="form-group mb-3">
+                    <label for="department">Department</label>
+                    <input type="text" class="form-control" id="department" name="department" required
+                        [(ngModel)]="empDetail.department" placeholder="Enter department">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="button" class="btn btn-danger m-lg-2" (click)="deleteEmployee()">Delete</button>
+            </form>
+        </div>
+        <div id="imgDiv" class="bg-secondary col rounded-3"
+            style="
+            background-image: url('https://www.condley.cpa/wp-content/uploads/2015/10/159434207-resized.jpg'); background-size: cover;"></div>
+    </div>
+
+</div>

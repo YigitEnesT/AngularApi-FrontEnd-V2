@@ -1,5 +1,7 @@
 # AngularProject
 
+Klasörü Visual Studio Code içinde açtıktan sonra Terminal açtıktan komut satırı kısmına 'npm i' yazmanız gerek. Daha sonrasında yine komut satırına 'ng serve' yazdıktan sonra Proje açılacaktır.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.3.
 
 ## Development server
